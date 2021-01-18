@@ -47,12 +47,27 @@ validation_dogs_dir = os.path.join(validation_dir, 'dogs')
 model_origin = tf.keras.models.Sequential([
   tf.keras.layers.Conv2D(16, (3,3), activation='relu', input_shape=(150, 150, 3)),
   tf.keras.layers.MaxPooling2D(2,2),
+
+  keras.layers.Dropout(0.5),
+
   tf.keras.layers.Conv2D(32, (3,3), activation='relu'),
   tf.keras.layers.MaxPooling2D(2,2),
+
+  keras.layers.Dropout(0.5),
+
   tf.keras.layers.Conv2D(64, (3,3), activation='relu'),
   tf.keras.layers.MaxPooling2D(2,2),
+
+  keras.layers.Dropout(0.5),
+
   tf.keras.layers.Flatten(),
+
+  keras.layers.Dropout(0.5),
+
   tf.keras.layers.Dense(512, activation='relu'),
+
+  keras.layers.Dropout(0.5),
+
   tf.keras.layers.Dense(1, activation='sigmoid')
 ])
 
@@ -77,7 +92,16 @@ model_origin.compile(optimizer=RMSprop(lr=0.001),
 # 이미지 데이터 전처리
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
-train_datagen = ImageDataGenerator( rescale = 1.0/255. )
+# train_datagen = ImageDataGenerator( rescale = 1.0/255. )
+train_datagen = ImageDataGenerator(rescale = 1.0/255.,
+                                 rotation_range=40,
+                                 width_shift_range=0.2,
+                                 height_shift_range=0.2,
+                                 shear_range=0.2,
+                                 zoom_range=0.2,
+                                 horizontal_flip=True,
+                                 fill_mode='nearest')
+
 test_datagen  = ImageDataGenerator( rescale = 1.0/255. )
 
 train_generator = train_datagen.flow_from_directory(train_dir,
@@ -132,8 +156,6 @@ plt.title('Training and validation loss')
 plt.legend()
 
 plt.show()
-# 그래프 이미지로 저장
-plt.savefig('dog_cat_model_origin.png')
 
 
 
@@ -148,4 +170,4 @@ plt.savefig('dog_cat_model_origin.png')
 
 # 모델 저장
 from keras.models import load_model
-model_origin.save('/content/drive/MyDrive/Colab Notebooks/dog_cat_model_origin.h5')
+model_origin.save('/content/drive/MyDrive/Colab Notebooks/dog_cat_model_D&G.h5')
