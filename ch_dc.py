@@ -44,7 +44,7 @@ validation_dogs_dir = os.path.join(validation_dir, 'dogs')
 
 #신경망 생성
 
-model = tf.keras.models.Sequential([
+model_gen = tf.keras.models.Sequential([
   tf.keras.layers.Conv2D(16, (3,3), activation='relu', input_shape=(150, 150, 3)),
   tf.keras.layers.MaxPooling2D(2,2),
   tf.keras.layers.Conv2D(32, (3,3), activation='relu'),
@@ -56,7 +56,7 @@ model = tf.keras.models.Sequential([
   tf.keras.layers.Dense(1, activation='sigmoid')
 ])
 
-model.summary()
+model_gen.summary()
 
 
 
@@ -66,7 +66,7 @@ model.summary()
 
 # 컴파일
 from tensorflow.keras.optimizers import RMSprop
-model.compile(optimizer=RMSprop(lr=0.001),
+model_gen.compile(optimizer=RMSprop(lr=0.001),
             loss='binary_crossentropy',
             metrics = ['accuracy'])
 
@@ -77,8 +77,19 @@ model.compile(optimizer=RMSprop(lr=0.001),
 # 이미지 데이터 전처리
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
-train_datagen = ImageDataGenerator( rescale = 1.0/255. )
+# train_datagen = ImageDataGenerator( rescale = 1.0/255. )
+train_datagen = ImageDataGenerator(rescale = 1.0/255.,
+                                 rotation_range=40,
+                                 width_shift_range=0.2,
+                                 height_shift_range=0.2,
+                                 shear_range=0.2,
+                                 zoom_range=0.2,
+                                 horizontal_flip=True,
+                                 fill_mode='nearest')
+
 test_datagen  = ImageDataGenerator( rescale = 1.0/255. )
+
+
 
 train_generator = train_datagen.flow_from_directory(train_dir,
                                                   batch_size=20,
@@ -88,7 +99,7 @@ validation_generator =  test_datagen.flow_from_directory(validation_dir,
                                                        batch_size=20,
                                                        class_mode  = 'binary',
                                                        target_size = (150, 150))
-
+ImageDataGenerator 
 
 
 
@@ -97,7 +108,7 @@ validation_generator =  test_datagen.flow_from_directory(validation_dir,
 
 
 # 학습 과정 저장
-history = model.fit(train_generator,
+history = model_gen.fit(train_generator,
                     validation_data=validation_generator,
                     steps_per_epoch=100,
                     epochs=60,
@@ -133,7 +144,7 @@ plt.legend()
 
 plt.show()
 # 그래프 이미지로 저장
-plt.savefig('savefig_default.png')
+plt.savefig('dog_cat_model_gen.png')
 
 
 
@@ -148,4 +159,4 @@ plt.savefig('savefig_default.png')
 
 # 모델 저장
 from keras.models import load_model
-model.save('/content/drive/MyDrive/Colab Notebooks/codetorial/dog_cat_model.h5')
+model_gen.save('/content/drive/MyDrive/Colab Notebooks/codetorial/dog_cat_model_gen.h5')
