@@ -8,19 +8,6 @@ import zipfile
 # https://codetorial.net/tensorflow/classifying_the_cats_and_dogs.html
 
 
-# 이미지 받고 동일 위치에 zip파일 압축해제
-# 자료 다운로드 한번 다운하면 이곳은 주석
-!wget --no-check-certificate \
-https://storage.googleapis.com/mledu-datasets/cats_and_dogs_filtered.zip \
--O /tmp/cats_and_dogs_filtered.zip
-local_zip = '/tmp/cats_and_dogs_filtered.zip'
-zip_ref = zipfile.ZipFile(local_zip, 'r')
-zip_ref.extractall('/tmp')
-zip_ref.close()
-
-
-
-
 
 # 기본 경로 설정
 base_dir = '/tmp/cats_and_dogs_filtered'
