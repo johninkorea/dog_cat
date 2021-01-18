@@ -170,4 +170,4 @@ plt.show()
 
 # 모델 저장
 from keras.models import load_model
-model_origin.save('/content/drive/MyDrive/Colab Notebooks/dog_cat_model_D&G.h5')
+model_origin.save('/content/drive/MyDrive/Colab Notebooks/dog_cat_model_D&G_chDP.h5')
