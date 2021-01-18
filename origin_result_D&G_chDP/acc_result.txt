@@ -1,0 +1,81 @@
+a1.png is a dog[0.99981266]
+a2.png is a dog[1.]
+a3.png is a cat[0.]
+a4.png is a dog[1.7808785e-22]
+a5.png is a dog[1.]
+a6.png is a dog[5.3654608e-28]
+a7.png is a dog[4.5356827e-20]
+a8.png is a dog[1.]
+a9.png is a dog[1.]
+
+c1.png is a dog[0.9008042]
+c2.png is a dog[1.]
+c3.jpg is a dog[0.00392502]
+c4.png is a cat[0.]
+c5.png is a dog[0.968873]
+c6.png is a dog[5.6136397e-14]
+
+cat1.jpg is a dog[1.]
+cat2.jpg is a dog[0.9999995]
+cat3.png is a cat[0.]
+cat4.png is a dog[1.]
+cat5.png is a cat[0.]
+cat6.png is a cat[0.]
+
+d1.png is a cat[0.]
+d2.png is a dog[2.075449e-14]
+d3.png is a dog[4.75106e-13]
+d4.png is a dog[1.]
+d5.png is a dog[1.]
+d6.png is a dog[2.1588013e-32]
+d7.png is a dog[5.78482e-38]
+d8.png is a dog[1.]
+d9.png is a dog[5.8239288e-36]
+d10.png is a dog[1.9772466e-23]
+d11.jpg is a dog[0.99999404]
+d12.png is a dog[0.07549948]
+d13.png is a dog[0.5253703]
+d14.png is a cat[0.]
+d15.png is a cat[0.]
+d16.png is a cat[0.]
+d17.png is a dog[1.674408e-25]
+d18.png is a dog[2.8576807e-08]
+d19.png is a dog[1.2896815e-21]
+
+da1.png is a cat[0.]
+da2.png is a cat[0.]
+da3.png is a dog[0.99999857]
+da4.png is a cat[0.]
+da5.png is a dog[1.0941538e-37]
+da6.png is a dog[1.]
+da7.png is a cat[0.]
+da8.png is a cat[0.]
+da9.png is a cat[0.]
+da10.png is a dog[0.98234785]
+
+so.png is a dog[1.]
+
+
+
+
+총 틀린 수
+15/47
+
+
+a1
+1/9
+
+c1
+1/6
+
+cat
+3/6
+
+d
+4/19
+
+da1
+6/10
+
+so
+0/1
