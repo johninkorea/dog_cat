@@ -44,7 +44,7 @@ validation_dogs_dir = os.path.join(validation_dir, 'dogs')
 
 #신경망 생성
 
-model = tf.keras.models.Sequential([
+model_origin = tf.keras.models.Sequential([
   tf.keras.layers.Conv2D(16, (3,3), activation='relu', input_shape=(150, 150, 3)),
   tf.keras.layers.MaxPooling2D(2,2),
   tf.keras.layers.Conv2D(32, (3,3), activation='relu'),
@@ -56,7 +56,7 @@ model = tf.keras.models.Sequential([
   tf.keras.layers.Dense(1, activation='sigmoid')
 ])
 
-model.summary()
+model_origin.summary()
 
 
 
@@ -66,7 +66,7 @@ model.summary()
 
 # 컴파일
 from tensorflow.keras.optimizers import RMSprop
-model.compile(optimizer=RMSprop(lr=0.001),
+model_origin.compile(optimizer=RMSprop(lr=0.001),
             loss='binary_crossentropy',
             metrics = ['accuracy'])
 
@@ -97,7 +97,7 @@ validation_generator =  test_datagen.flow_from_directory(validation_dir,
 
 
 # 학습 과정 저장
-history = model.fit(train_generator,
+history = model_origin.fit(train_generator,
                     validation_data=validation_generator,
                     steps_per_epoch=100,
                     epochs=60,
@@ -133,7 +133,7 @@ plt.legend()
 
 plt.show()
 # 그래프 이미지로 저장
-plt.savefig('savefig_default.png')
+plt.savefig('dog_cat_model_origin.png')
 
 
 
@@ -148,4 +148,4 @@ plt.savefig('savefig_default.png')
 
 # 모델 저장
 from keras.models import load_model
-model.save('/content/drive/MyDrive/Colab Notebooks/codetorial/dog_cat_model.h5')
+model_origin.save('/content/drive/MyDrive/Colab Notebooks/dog_cat_model_origin.h5')
