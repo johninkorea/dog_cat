@@ -48,25 +48,25 @@ model_origin = tf.keras.models.Sequential([
   tf.keras.layers.Conv2D(16, (3,3), activation='relu', input_shape=(150, 150, 3)),
   tf.keras.layers.MaxPooling2D(2,2),
 
-  keras.layers.Dropout(0.5),
+  keras.layers.Dropout(0.25),
 
   tf.keras.layers.Conv2D(32, (3,3), activation='relu'),
   tf.keras.layers.MaxPooling2D(2,2),
 
-  keras.layers.Dropout(0.5),
+  keras.layers.Dropout(0.25),
 
   tf.keras.layers.Conv2D(64, (3,3), activation='relu'),
   tf.keras.layers.MaxPooling2D(2,2),
 
-  keras.layers.Dropout(0.5),
+  keras.layers.Dropout(0.25),
 
   tf.keras.layers.Flatten(),
 
-  keras.layers.Dropout(0.5),
+  keras.layers.Dropout(0.25),
 
   tf.keras.layers.Dense(512, activation='relu'),
 
-  keras.layers.Dropout(0.5),
+  keras.layers.Dropout(0.25),
 
   tf.keras.layers.Dense(1, activation='sigmoid')
 ])
