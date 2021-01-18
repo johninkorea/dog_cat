@@ -16,7 +16,7 @@ from keras.preprocessing import image
 
 # 불러오rl
 # 저 괄호안에 드라이브 마운드한 주소 넣으면 되는 부분
-new_model = tf.keras.models.load_model('/content/drive/MyDrive/Colab Notebooks/codetorial/dog_cat_model.h5')
+new_model = tf.keras.models.load_model('/content/drive/MyDrive/Colab Notebooks/dog_cat_model_drop.h5')
 
 
 
