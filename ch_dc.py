@@ -159,4 +159,4 @@ plt.savefig('dog_cat_model_gen.png')
 
 # 모델 저장
 from keras.models import load_model
-model_gen.save('/content/drive/MyDrive/Colab Notebooks/codetorial/dog_cat_model_gen.h5')
+model_gen.save('/content/drive/MyDrive/Colab Notebooks/dog_cat_model_gen.h5')
